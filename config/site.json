@@ -1,0 +1,16 @@
+{
+  "name": "AI Companion",
+  "avatar": "/avatar.svg",
+  "theme": "blue",
+  "anniversary": "2026-01-01",
+  "welcome": "欢迎回来",
+  "bio": "一个可配置、可记忆、可长期陪伴用户的 AI 伴侣。",
+  "tagline": "轻量、稳定、可商用的 AI Companion 白胚。",
+  "dailyMessages": [
+    "今天也可以从一句简单的问候开始。",
+    "这里会展示来自配置或数据库的每日寄语。",
+    "所有客户定制内容都可以在配置和数据库中替换。"
+  ],
+  "persona": "这是一个白胚 persona。交付客户时，请在 config/site.json 或后台配置中替换为客户需要的角色设定、语气、边界和陪伴方式。",
+  "worldview": "这是一个白胚世界观。交付客户时，可替换为品牌、角色或产品对应的背景设定。"
+}
