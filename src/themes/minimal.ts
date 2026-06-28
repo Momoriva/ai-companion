@@ -13,5 +13,7 @@ export const minimalTheme: ThemeTokens = {
     border: "rgba(140,167,216,0.24)"
   },
   gradient: "linear-gradient(180deg, #FCFDFF 0%, #F1F6FF 100%)",
-  shadow: "0 20px 64px rgba(90, 110, 145, 0.10)"
+  shadow: "0 20px 64px rgba(90, 110, 145, 0.10)",
+  shadowCard: "0 14px 36px rgba(44, 75, 128, 0.08)",
+  shadowSoft: "0 20px 60px rgba(44, 75, 128, 0.12)"
 };

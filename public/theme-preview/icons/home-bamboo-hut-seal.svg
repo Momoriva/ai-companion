@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Zhu Yin Ju Round Seal Icon</title>
+  <desc id="desc">A round red seal icon with white carved lines forming Zhu Yin Ju, bamboo, wind, and thatched-roof motifs.</desc>
+  <defs>
+    <clipPath id="round-seal">
+      <circle cx="64" cy="64" r="55" />
+    </clipPath>
+    <filter id="seal-roughen" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" seed="42" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.25" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <style>
+      .red {
+        fill: #9f3a22;
+        filter: url(#seal-roughen);
+      }
+      .cut {
+        fill: none;
+        stroke: #fff8e8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: url(#seal-roughen);
+      }
+      .wide { stroke-width: 7.2; }
+      .mid { stroke-width: 4.6; }
+      .thin { stroke-width: 2.8; }
+      .hair { stroke-width: 1.9; }
+      .fill-cut {
+        fill: #fff8e8;
+        filter: url(#seal-roughen);
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round-seal)">
+    <circle class="red" cx="64" cy="64" r="55" />
+
+    <path class="cut thin" d="M19 26c14-13 43-17 64-9 14 5 23 13 29 24" opacity=".92" />
+    <path class="cut thin" d="M15 92c16 18 48 25 75 13 12-5 20-13 25-23" opacity=".84" />
+    <path class="cut hair" d="M15 39c8-6 16-9 24-9" opacity=".9" />
+    <path class="cut hair" d="M93 24c9 4 16 10 21 18" opacity=".9" />
+
+    <path class="cut wide" d="M28 63c7-6 16-9 27-10h19c11 1 20 4 27 10" />
+    <path class="cut mid" d="M25 66c5 5 11 5 17 1h45c6 4 12 4 17-1" />
+    <path class="cut mid" d="M33 57c17-5 46-5 63 0" />
+    <path class="cut thin" d="M38 51c16-3 36-3 52 0" />
+    <path class="cut hair" d="M39 46c16-3 34-2 50 1" opacity=".82" />
+    <path class="cut hair" d="M45 40c11-2 25-2 38 1" opacity=".72" />
+
+    <path class="cut mid" d="M42 71v22" />
+    <path class="cut mid" d="M87 71v22" />
+    <path class="cut thin" d="M48 72v18" opacity=".82" />
+    <path class="cut thin" d="M81 72v18" opacity=".82" />
+    <path class="cut mid" d="M57 92V79c0-5 3-8 7-8s7 3 7 8v13" />
+    <path class="cut hair" d="M58 78c4-3 8-3 12 0" opacity=".78" />
+    <path class="cut hair" d="M54 66c7 2 14 2 21 0" opacity=".76" />
+
+    <path class="cut thin" d="M21 72c8-5 13-12 15-22" />
+    <path class="cut thin" d="M24 53c-6-2-11-5-16-11 8 0 14 2 19 6" />
+    <path class="cut hair" d="M22 62c-6 0-11-2-16-6 8-2 14-1 18 2" />
+    <path class="cut hair" d="M34 43c-5-8-6-15-2-23 4 7 5 14 2 23" opacity=".92" />
+    <path class="cut hair" d="M38 39c3-7 8-12 15-15-1 8-5 13-12 17" opacity=".8" />
+
+    <path class="cut thin" d="M107 72c-8-5-13-12-15-22" />
+    <path class="cut thin" d="M104 53c6-2 11-5 16-11-8 0-14 2-19 6" />
+    <path class="cut hair" d="M106 62c6 0 11-2 16-6-8-2-14-1-18 2" />
+    <path class="cut hair" d="M94 43c5-8 6-15 2-23-4 7-5 14-2 23" opacity=".92" />
+    <path class="cut hair" d="M90 39c-3-7-8-12-15-15 1 8 5 13 12 17" opacity=".8" />
+
+    <path class="cut thin" d="M20 83c8 1 15-1 22-6" opacity=".85" />
+    <path class="cut hair" d="M17 98c12-1 22-5 31-13" opacity=".85" />
+    <path class="cut hair" d="M28 104c11-3 19-8 25-16" opacity=".68" />
+    <path class="cut thin" d="M108 83c-8 1-15-1-22-6" opacity=".85" />
+    <path class="cut hair" d="M111 98c-12-1-22-5-31-13" opacity=".85" />
+    <path class="cut hair" d="M100 104c-11-3-19-8-25-16" opacity=".68" />
+
+    <path class="cut thin" d="M52 112c6-8 11-14 16-19 6 5 11 11 16 19" opacity=".72" />
+    <path class="cut hair" d="M57 110c3-5 7-10 11-14 4 4 8 9 11 14" opacity=".72" />
+
+    <circle class="fill-cut" cx="44" cy="22" r="2.5" />
+    <circle class="fill-cut" cx="103" cy="35" r="2" />
+    <circle class="fill-cut" cx="25" cy="88" r="1.8" />
+    <circle class="fill-cut" cx="85" cy="18" r="1.5" />
+    <path class="fill-cut" d="M111 20c3 1 5 2 7 5-4 0-7 0-9-2 0-1 1-2 2-3z" opacity=".82" />
+    <path class="fill-cut" d="M17 21c-3 1-5 3-7 6 4 0 7-1 9-3 0-1-1-2-2-3z" opacity=".82" />
+  </g>
+
+  <path class="cut hair" d="M15 16c26-16 73-12 94 9" opacity=".55" />
+  <path class="cut hair" d="M14 109c22 15 69 16 100-6" opacity=".5" />
+</svg>

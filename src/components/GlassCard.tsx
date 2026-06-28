@@ -6,5 +6,5 @@ type GlassCardProps = {
 };
 
 export function GlassCard({ children, className = "" }: GlassCardProps) {
-  return <section className={`glass rounded-[32px] p-5 ${className}`}>{children}</section>;
+  return <section className={`glass rounded-[6px] p-5 ${className}`}>{children}</section>;
 }

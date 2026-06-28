@@ -16,8 +16,8 @@ const config: Config = {
         ]
       },
       boxShadow: {
-        soft: "0 20px 60px rgba(44, 75, 128, 0.12)",
-        card: "0 14px 36px rgba(44, 75, 128, 0.08)"
+        soft: "var(--theme-shadow-soft)",
+        card: "var(--theme-shadow-card)"
       }
     }
   },

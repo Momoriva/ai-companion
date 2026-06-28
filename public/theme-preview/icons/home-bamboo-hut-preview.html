@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Bamboo Hut Seal Icon Preview</title>
+    <style>
+      :root {
+        --seal: #9f3a22;
+        --ink: #243f5c;
+        --paper: #efe6cf;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at 30% 20%, rgba(255,255,255,.55), transparent 28rem),
+          repeating-linear-gradient(90deg, rgba(83,52,28,.045) 0 1px, transparent 1px 5px),
+          var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .wrap {
+        width: min(92vw, 860px);
+        display: grid;
+        gap: 28px;
+      }
+
+      .card {
+        border: 1px solid rgba(127, 82, 46, .18);
+        border-radius: 8px;
+        background: rgba(255, 250, 235, .68);
+        padding: 34px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-family: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+        font-size: 34px;
+        line-height: 1.1;
+      }
+
+      p {
+        margin: 0;
+        color: rgba(36, 63, 92, .72);
+        line-height: 1.8;
+      }
+
+      .preview {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: end;
+        gap: 34px;
+      }
+
+      .sample {
+        display: grid;
+        gap: 10px;
+        justify-items: center;
+      }
+
+      .sample span {
+        font-size: 13px;
+        color: rgba(36, 63, 92, .64);
+      }
+
+      .nav-pill {
+        display: grid;
+        grid-template-columns: repeat(5, 48px);
+        gap: 10px;
+        width: max-content;
+        border: 1px solid rgba(36, 63, 92, .14);
+        border-radius: 8px;
+        background: rgba(246, 248, 243, .86);
+        padding: 10px;
+      }
+
+      .nav-icon {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+      }
+
+      .nav-icon.active {
+        background: #243f5c;
+      }
+
+      .nav-icon.active img {
+        filter: none;
+        opacity: 1;
+      }
+
+      img {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <h1>竹隐居 · Home Icon</h1>
+        <p>圆形朱印章风格，以白色负形镂空出竹隐居、竹叶、风纹与茅草屋顶；先作为图标预览，不接入页面导航。</p>
+      </section>
+
+      <section class="card preview">
+        <div class="sample">
+          <img src="./home-bamboo-hut-seal.svg" alt="竹隐居小竹屋图标 96px" width="96" height="96" />
+          <span>96px detail</span>
+        </div>
+        <div class="sample">
+          <img src="./home-bamboo-hut-seal.svg" alt="竹隐居小竹屋图标 48px" width="48" height="48" />
+          <span>48px nav</span>
+        </div>
+        <div class="sample">
+          <img src="./home-bamboo-hut-seal.svg" alt="竹隐居小竹屋图标 24px" width="24" height="24" />
+          <span>24px icon</span>
+        </div>
+        <div class="sample">
+          <div class="nav-pill" aria-label="导航栏图标预览">
+            <div class="nav-icon active">
+              <img src="./home-bamboo-hut-seal.svg" alt="激活态小竹屋图标" width="28" height="28" />
+            </div>
+            <div class="nav-icon"><img src="./home-bamboo-hut-seal.svg" alt="" width="24" height="24" /></div>
+            <div class="nav-icon"><img src="./home-bamboo-hut-seal.svg" alt="" width="24" height="24" /></div>
+            <div class="nav-icon"><img src="./home-bamboo-hut-seal.svg" alt="" width="24" height="24" /></div>
+            <div class="nav-icon"><img src="./home-bamboo-hut-seal.svg" alt="" width="24" height="24" /></div>
+          </div>
+          <span>navigation context</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

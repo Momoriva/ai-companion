@@ -34,7 +34,7 @@ export default function HomePage({ moments }: HomePageProps) {
             <div className="min-w-0 flex-1">
               <p className="text-sm font-medium text-[var(--color-muted)]">{siteConfig.tagline}</p>
               <h2 className="mt-1 truncate text-2xl font-semibold">{siteConfig.name}</h2>
-              <div className="mt-3 inline-flex rounded-full bg-[var(--color-secondary)] px-3 py-1 text-sm font-medium">
+              <div className="days-badge mt-3 inline-flex px-3 py-1 text-sm font-medium">
                 Together Days · {togetherDays}
               </div>
             </div>
@@ -48,16 +48,16 @@ export default function HomePage({ moments }: HomePageProps) {
 
         <div className="grid grid-cols-2 gap-3">
           <GlassCard className="p-4">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-secondary)] text-[var(--color-primary)]">
+            <span className="small-mark flex h-10 w-10 items-center justify-center">
               <CalendarDays size={19} />
             </span>
             <p className="mt-3 text-sm text-[var(--color-muted)]">开始日期</p>
             <p className="mt-1 text-lg font-semibold">{formatDate(siteConfig.anniversary)}</p>
           </GlassCard>
 
-          <Link href="/chat" className="glass flex rounded-[32px] p-4">
+          <Link href="/chat" className="home-chat-card glass flex p-4">
             <div className="flex w-full flex-col justify-between">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary)] text-white">
+              <span className="primary-mark flex h-10 w-10 items-center justify-center">
                 <MessageCircle size={19} />
               </span>
               <div>

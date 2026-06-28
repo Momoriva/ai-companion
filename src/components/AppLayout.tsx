@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import type { ReactNode } from "react";
 import { BottomNav } from "./BottomNav";
 import { siteConfig } from "@/lib/site-config";
-import { themeStyle } from "@/lib/theme";
+import { activeTheme, themeStyle } from "@/lib/theme";
 
 type AppLayoutProps = {
   children: ReactNode;
@@ -16,7 +16,11 @@ export function AppLayout({ children, title }: AppLayoutProps) {
   const pageTitle = title ? `${title} · ${siteConfig.name}` : siteConfig.name;
 
   return (
-    <div style={themeStyle()} className="min-h-screen bg-[var(--color-background)] text-[var(--color-text)]">
+    <div
+      data-theme={activeTheme.name}
+      style={themeStyle()}
+      className="app-root min-h-screen text-[var(--color-text)]"
+    >
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={siteConfig.bio} />

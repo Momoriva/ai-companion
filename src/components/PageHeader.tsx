@@ -8,7 +8,7 @@ type PageHeaderProps = {
 
 export function PageHeader({ eyebrow, title, action }: PageHeaderProps) {
   return (
-    <header className="mb-5 flex items-end justify-between gap-4">
+    <header className="page-header mb-5 flex items-end justify-between gap-4">
       <div className="min-w-0">
         {eyebrow ? <p className="mb-1 text-sm font-medium text-[var(--color-muted)]">{eyebrow}</p> : null}
         <h1 className="truncate text-3xl font-semibold tracking-normal text-[var(--color-text)]">{title}</h1>

@@ -21,7 +21,7 @@ body {
   background: var(--theme-gradient);
   background-attachment: fixed;
   color: var(--color-text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--theme-font-sans, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
   letter-spacing: 0;
 }
 
@@ -41,4 +41,343 @@ textarea {
 
 .safe-bottom {
   padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
+}
+
+.app-root {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+}
+
+[data-theme="yanyunNight"].app-root {
+  background: transparent;
+}
+
+[data-theme="yanyunNight"].app-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(31, 38, 48, 0.58) 0%, rgba(41, 78, 113, 0.28) 46%, rgba(173, 204, 224, 0.64) 100%),
+    url("/theme-assets/yanyun-ink-bamboo-retreat.png") center top / cover no-repeat;
+  transform: scale(1.01);
+}
+
+[data-theme="yanyunNight"].app-root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 28% 10%, rgba(245, 241, 232, 0.2), transparent 17rem),
+    radial-gradient(circle at 82% 24%, rgba(208, 160, 64, 0.08), transparent 13rem),
+    linear-gradient(180deg, rgba(31, 38, 48, 0.06), rgba(31, 38, 48, 0.16));
+}
+
+[data-theme="yanyunNight"] main {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="yanyunNight"] main {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "Source Han Serif SC", Georgia, serif;
+}
+
+[data-theme="yanyunNight"] .page-header p,
+[data-theme="yanyunNight"] .page-header h1 {
+  color: #f6f8f3;
+  text-shadow: 0 2px 14px rgba(31, 38, 48, 0.5);
+}
+
+[data-theme="yanyunNight"] .glass {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(41, 78, 113, 0.22);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(245, 241, 232, 0.97), rgba(243, 238, 227, 0.95)),
+    radial-gradient(circle at 100% 0, rgba(173, 204, 224, 0.2), transparent 11rem);
+  box-shadow: 0 5px 10px rgba(31, 38, 48, 0.12);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-theme="yanyunNight"] .glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg width='220' height='150' viewBox='0 0 220 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 118 C24 93 45 84 66 105 C89 70 116 55 146 98 C171 78 194 82 220 112 L220 150 L0 150 Z' fill='%23294E71' fill-opacity='.28'/%3E%3Cpath d='M0 130 C34 108 65 110 93 124 C124 95 151 96 184 126 C199 119 210 118 220 123 L220 150 L0 150 Z' fill='%23602020' fill-opacity='.13'/%3E%3C/svg%3E") left bottom / 150px auto no-repeat;
+  opacity: 0.2;
+}
+
+[data-theme="yanyunNight"] .glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg width='140' height='190' viewBox='0 0 140 190' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23294E71' stroke-width='6' stroke-linecap='round' opacity='.24'%3E%3Cpath d='M108 4 C98 55 94 104 84 186'/%3E%3Cpath d='M128 16 C116 67 112 118 101 188'/%3E%3C/g%3E%3Cg stroke='%23537395' stroke-width='3' stroke-linecap='round' opacity='.28'%3E%3Cpath d='M88 58 C54 44 34 31 12 11'/%3E%3Cpath d='M96 82 C66 85 38 80 14 70'/%3E%3Cpath d='M89 116 C58 133 37 146 15 170'/%3E%3Cpath d='M116 48 C93 35 74 20 55 4'/%3E%3Cpath d='M112 100 C89 102 68 112 48 128'/%3E%3C/g%3E%3C/svg%3E") right top / 92px auto no-repeat;
+  opacity: 0.16;
+}
+
+[data-theme="yanyunNight"] .glass > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="yanyunNight"] .companion-avatar {
+  border-radius: 6px;
+  border-color: rgba(245, 241, 232, 0.72);
+  background: #294e71;
+  box-shadow: 0 0 0 1px rgba(96, 32, 32, 0.2), 0 6px 10px rgba(31, 38, 48, 0.18);
+}
+
+[data-theme="yanyunNight"] .moments-panel {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(41, 78, 113, 0.22);
+  border-radius: 6px;
+  background: rgba(245, 241, 232, 0.96);
+  box-shadow: 0 5px 10px rgba(31, 38, 48, 0.12);
+}
+
+[data-theme="yanyunNight"] .moments-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg width='220' height='150' viewBox='0 0 220 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 118 C24 93 45 84 66 105 C89 70 116 55 146 98 C171 78 194 82 220 112 L220 150 L0 150 Z' fill='%23294E71' fill-opacity='.28'/%3E%3Cpath d='M0 130 C34 108 65 110 93 124 C124 95 151 96 184 126 C199 119 210 118 220 123 L220 150 L0 150 Z' fill='%23602020' fill-opacity='.13'/%3E%3C/svg%3E") left bottom / 145px auto no-repeat;
+  opacity: 0.18;
+}
+
+[data-theme="yanyunNight"] .moments-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="yanyunNight"] .chat-panel {
+  border-radius: 6px;
+}
+
+[data-theme="yanyunNight"] .chat-panel > .absolute.bg-white\/55 {
+  background: rgba(245, 241, 232, 0.62);
+  backdrop-filter: none;
+}
+
+[data-theme="yanyunNight"] .chat-bubble {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(41, 78, 113, 0.2);
+  border-radius: 6px;
+  color: #222831;
+  box-shadow: 0 4px 8px rgba(31, 38, 48, 0.1);
+}
+
+[data-theme="yanyunNight"] .chat-bubble::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg width='120' height='90' viewBox='0 0 120 90' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 72 C18 54 34 48 50 62 C67 43 84 39 105 66 C112 63 116 64 120 67 L120 90 L0 90 Z' fill='%23294E71' fill-opacity='.22'/%3E%3C/svg%3E") left bottom / 76px auto no-repeat;
+  opacity: 0.1;
+}
+
+[data-theme="yanyunNight"] .chat-bubble > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="yanyunNight"] .chat-bubble-ai {
+  background: rgba(245, 241, 232, 0.96);
+}
+
+[data-theme="yanyunNight"] .chat-bubble-user {
+  border-color: rgba(96, 32, 32, 0.24);
+  background: rgba(173, 204, 224, 0.58);
+}
+
+[data-theme="yanyunNight"] .chat-composer {
+  border-color: rgba(41, 78, 113, 0.28);
+  border-radius: 6px;
+  background: rgba(245, 241, 232, 0.97);
+  box-shadow: 0 4px 8px rgba(31, 38, 48, 0.1);
+}
+
+[data-theme="yanyunNight"] .bottom-nav-surface {
+  height: 70px;
+  border-radius: 8px;
+  border-color: rgba(96, 32, 32, 0.2);
+  background: rgba(245, 241, 232, 0.94);
+  box-shadow: 0 8px 14px rgba(31, 38, 48, 0.18);
+}
+
+[data-theme="yanyunNight"] .nav-seal {
+  position: relative;
+  border-radius: 6px;
+  opacity: 0.72;
+  transform: translateY(0) scale(1);
+  transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease;
+}
+
+[data-theme="yanyunNight"] .nav-seal:hover {
+  opacity: 1;
+  transform: scale(1.04);
+  background: rgba(173, 204, 224, 0.18);
+}
+
+[data-theme="yanyunNight"] .nav-seal-active {
+  opacity: 1;
+  background: rgba(96, 32, 32, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(96, 32, 32, 0.18);
+}
+
+[data-theme="yanyunNight"] .nav-seal-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  object-fit: contain;
+}
+
+[data-theme="yanyunNight"] input,
+[data-theme="yanyunNight"] textarea {
+  color: #222831;
+}
+
+[data-theme="yanyunNight"] input::placeholder,
+[data-theme="yanyunNight"] textarea::placeholder {
+  color: rgba(83, 115, 149, 0.82);
+}
+
+[data-theme="yanyunNight"] button,
+[data-theme="yanyunNight"] a,
+[data-theme="yanyunNight"] input,
+[data-theme="yanyunNight"] textarea {
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease, opacity 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+[data-theme="yanyunNight"] button:focus-visible,
+[data-theme="yanyunNight"] a:focus-visible,
+[data-theme="yanyunNight"] input:focus-visible,
+[data-theme="yanyunNight"] textarea:focus-visible {
+  outline: 2px solid rgba(208, 160, 64, 0.72);
+  outline-offset: 2px;
+}
+
+[data-theme="yanyunNight"] .primary-action,
+[data-theme="yanyunNight"] button.bg-\[var\(--color-primary\)\] {
+  border: 1px solid rgba(173, 204, 224, 0.2);
+  border-radius: 6px;
+  background: #294e71;
+  color: #f5f1e8;
+  box-shadow: 0 4px 8px rgba(31, 38, 48, 0.16);
+}
+
+[data-theme="yanyunNight"] .primary-action:hover,
+[data-theme="yanyunNight"] button.bg-\[var\(--color-primary\)\]:hover {
+  background: #2d6191;
+}
+
+[data-theme="yanyunNight"] .primary-action:active,
+[data-theme="yanyunNight"] button.bg-\[var\(--color-primary\)\]:active {
+  background: #1f2630;
+  transform: translateY(1px);
+}
+
+[data-theme="yanyunNight"] .secondary-action,
+[data-theme="yanyunNight"] .option-tile,
+[data-theme="yanyunNight"] .search-field,
+[data-theme="yanyunNight"] .paper-input,
+[data-theme="yanyunNight"] .comment-composer,
+[data-theme="yanyunNight"] .metric-chip {
+  border: 1px solid rgba(41, 78, 113, 0.22);
+  border-radius: 6px;
+  background: rgba(245, 241, 232, 0.86);
+}
+
+[data-theme="yanyunNight"] .secondary-action:hover,
+[data-theme="yanyunNight"] .option-tile:hover {
+  border-color: rgba(96, 32, 32, 0.32);
+  background: rgba(173, 204, 224, 0.28);
+}
+
+[data-theme="yanyunNight"] .paper-input:focus,
+[data-theme="yanyunNight"] .search-field:focus-within,
+[data-theme="yanyunNight"] .comment-composer:focus-within,
+[data-theme="yanyunNight"] .chat-composer:focus-within {
+  border-color: rgba(208, 160, 64, 0.74);
+  box-shadow: 0 0 0 3px rgba(208, 160, 64, 0.12);
+}
+
+[data-theme="yanyunNight"] .segmented-button {
+  height: 2.5rem;
+  border: 1px solid rgba(41, 78, 113, 0.2);
+  border-radius: 6px;
+  background: rgba(245, 241, 232, 0.75);
+  color: #537395;
+  font-weight: 700;
+}
+
+[data-theme="yanyunNight"] .segmented-button:hover {
+  border-color: rgba(83, 115, 149, 0.42);
+  color: #294e71;
+}
+
+[data-theme="yanyunNight"] .segmented-button.is-selected {
+  border-color: rgba(96, 32, 32, 0.28);
+  background: #602020;
+  color: #f5f1e8;
+  box-shadow: inset 0 -2px 0 rgba(208, 160, 64, 0.45);
+}
+
+[data-theme="yanyunNight"] .small-mark,
+[data-theme="yanyunNight"] .icon-action {
+  border-radius: 6px;
+  background: rgba(173, 204, 224, 0.34);
+  color: #294e71;
+}
+
+[data-theme="yanyunNight"] .icon-action.is-selected,
+[data-theme="yanyunNight"] .primary-mark {
+  border-radius: 6px;
+  background: #294e71;
+  color: #f5f1e8;
+}
+
+[data-theme="yanyunNight"] .days-badge,
+[data-theme="yanyunNight"] .status-chip {
+  border: 1px solid rgba(96, 32, 32, 0.18);
+  border-radius: 4px;
+  background: rgba(173, 204, 224, 0.22);
+  color: #294e71;
+}
+
+[data-theme="yanyunNight"] .home-chat-card:hover,
+[data-theme="yanyunNight"] a.text-\[var\(--color-muted\)\]:hover {
+  color: #602020;
+}
+
+[data-theme="yanyunNight"] .settings-sheet {
+  border-radius: 8px;
+  border-color: rgba(41, 78, 113, 0.24);
+  background: rgba(245, 241, 232, 0.96);
+  backdrop-filter: none;
+}
+
+[data-theme="yanyunNight"] .moments-cover {
+  background: linear-gradient(135deg, rgba(41, 78, 113, 0.88), rgba(83, 115, 149, 0.7));
+}
+
+[data-theme="yanyunNight"] .moments-cover > .absolute {
+  background: radial-gradient(circle at 24% 18%, rgba(245, 241, 232, 0.78), transparent 30%), linear-gradient(135deg, rgba(45, 97, 145, 0.74), rgba(31, 38, 48, 0.72));
+}
+
+@media (max-width: 640px) {
+  [data-theme="yanyunNight"].app-root::before {
+    background:
+      linear-gradient(180deg, rgba(31, 38, 48, 0.54) 0%, rgba(41, 78, 113, 0.28) 46%, rgba(173, 204, 224, 0.66) 100%),
+      url("/theme-assets/yanyun-ink-bamboo-retreat.png") 63% top / auto 100% no-repeat;
+  }
 }

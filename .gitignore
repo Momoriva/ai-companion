@@ -1,9 +1,11 @@
 # dependencies
 node_modules
+.pnpm-store
 
 # Next.js
 .next
 out
+*.tsbuildinfo
 
 # environment
 .env
@@ -16,6 +18,11 @@ out
 
 # logs
 *.log
+
+# local capture and reference temp files
+tmp/
+.tmp-chrome-shot/
+.tmp-chrome-shot-mobile/
 
 # OS
 .DS_Store

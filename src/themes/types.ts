@@ -14,4 +14,6 @@ export type ThemeTokens = {
   };
   gradient: string;
   shadow: string;
+  shadowCard: string;
+  shadowSoft: string;
 };

@@ -177,7 +177,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
           </div>
         </GlassCard>
 
-        <div className="glass flex items-center gap-2 rounded-[28px] px-4 py-3">
+        <div className="search-field glass flex items-center gap-2 px-4 py-3">
           <Search size={18} className="text-[var(--color-muted)]" />
           <input
             className="min-w-0 flex-1 bg-transparent text-[16px] outline-none placeholder:text-[var(--color-muted)]"
@@ -190,7 +190,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
         <GlassCard>
           <form className="space-y-4" onSubmit={handleAddMemory}>
             <textarea
-              className="min-h-28 w-full resize-none rounded-[24px] border border-[var(--color-border)] bg-white/80 px-4 py-3 text-[16px] outline-none placeholder:text-[var(--color-muted)]"
+              className="paper-input min-h-28 w-full resize-none border border-[var(--color-border)] bg-white/80 px-4 py-3 text-[16px] outline-none placeholder:text-[var(--color-muted)]"
               onChange={(event) => setDraft(event.target.value)}
               placeholder="手动添加一条结构化记忆..."
               value={draft}
@@ -210,7 +210,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
               />
             </div>
             <button
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] font-semibold text-white shadow-card disabled:opacity-50"
+              className="primary-action flex h-12 w-full items-center justify-center gap-2 bg-[var(--color-primary)] font-semibold text-white shadow-card disabled:opacity-50"
               disabled={isSaving || !draft.trim()}
               type="submit"
             >
@@ -224,7 +224,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
           {filteredMemories.map((memory) => (
             <GlassCard className="p-4" key={memory.id}>
               <div className="flex gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--color-secondary)] text-[var(--color-text)]">
+                <span className="small-mark flex h-12 w-12 shrink-0 items-center justify-center bg-[var(--color-secondary)] text-[var(--color-text)]">
                   <CalendarDays size={21} />
                 </span>
                 <div className="min-w-0 flex-1">
@@ -233,7 +233,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
                       <p className="text-sm font-medium text-[var(--color-muted)]">{formatDate(memory.happened_at)}</p>
                       <h2 className="mt-1 truncate text-lg font-semibold">{memory.title}</h2>
                     </div>
-                    <span className="shrink-0 rounded-full bg-[var(--color-secondary)] px-3 py-1 text-sm font-semibold">
+                    <span className="status-chip shrink-0 px-3 py-1 text-sm font-semibold">
                       {memory.importance}
                     </span>
                   </div>
@@ -247,11 +247,11 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
                   </div>
 
                   <div className="mt-4 flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-white/80 px-3 py-1 text-xs text-[var(--color-muted)]">
+                    <span className="status-chip bg-white/80 px-3 py-1 text-xs text-[var(--color-muted)]">
                       {memory.source}
                     </span>
                     {memory.is_resolved ? (
-                      <span className="rounded-full bg-white/80 px-3 py-1 text-xs text-[var(--color-muted)]">沉底</span>
+                      <span className="status-chip bg-white/80 px-3 py-1 text-xs text-[var(--color-muted)]">沉底</span>
                     ) : null}
                     <button className={iconButtonClass(memory.is_pinned)} onClick={() => togglePin(memory)} type="button">
                       <Pin size={16} />
@@ -272,7 +272,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl bg-white/72 px-3 py-2">
+    <div className="metric-chip bg-white/72 px-3 py-2">
       <span className="font-semibold text-[var(--color-text)]">{label}</span>
       <span className="ml-1">{value}</span>
     </div>
@@ -281,14 +281,14 @@ function Metric({ label, value }: { label: string; value: string }) {
 
 function tabClass(active: boolean) {
   return [
-    "h-10 rounded-full text-sm font-semibold transition",
-    active ? "bg-[var(--color-primary)] text-white shadow-card" : "bg-white/70 text-[var(--color-muted)]"
+    "segmented-button h-10 text-sm font-semibold transition",
+    active ? "is-selected bg-[var(--color-primary)] text-white shadow-card" : "bg-white/70 text-[var(--color-muted)]"
   ].join(" ");
 }
 
 function iconButtonClass(active: boolean) {
   return [
-    "flex h-9 w-9 items-center justify-center rounded-full transition",
-    active ? "bg-[var(--color-primary)] text-white" : "bg-white/80 text-[var(--color-muted)]"
+    "icon-action flex h-9 w-9 items-center justify-center transition",
+    active ? "is-selected bg-[var(--color-primary)] text-white" : "bg-white/80 text-[var(--color-muted)]"
   ].join(" ");
 }

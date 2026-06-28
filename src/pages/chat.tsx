@@ -9,15 +9,6 @@ import { formatTime } from "@/lib/dates";
 import { siteConfig } from "@/lib/site-config";
 import type { Message } from "@/types/site";
 
-const initialMessages: Message[] = [
-  {
-    id: "welcome-message",
-    role: "assistant",
-    content: siteConfig.welcome,
-    created_at: new Date().toISOString()
-  }
-];
-
 type ChatCustomization = {
   remark: string;
   avatar: string;
@@ -31,10 +22,11 @@ const defaultCustomization: ChatCustomization = {
 };
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [hasHydrated, setHasHydrated] = useState(false);
   const [customization, setCustomization] = useState<ChatCustomization>(defaultCustomization);
   const bottomRef = useAutoScroll([messages.length, isTyping]);
 
@@ -47,17 +39,32 @@ export default function ChatPage() {
     const saved = window.localStorage.getItem("ai-companion-messages");
     if (saved) {
       setMessages(JSON.parse(saved));
+    } else {
+      setMessages([
+        {
+          id: "welcome-message",
+          role: "assistant",
+          content: siteConfig.welcome,
+          created_at: new Date().toISOString()
+        }
+      ]);
     }
 
     const savedCustomization = window.localStorage.getItem("ai-companion-chat-customization");
     if (savedCustomization) {
       setCustomization({ ...defaultCustomization, ...JSON.parse(savedCustomization) });
     }
+
+    setHasHydrated(true);
   }, []);
 
   useEffect(() => {
+    if (!hasHydrated) {
+      return;
+    }
+
     window.localStorage.setItem("ai-companion-messages", JSON.stringify(messages));
-  }, [messages]);
+  }, [hasHydrated, messages]);
 
   useEffect(() => {
     window.localStorage.setItem("ai-companion-chat-customization", JSON.stringify(customization));
@@ -138,7 +145,7 @@ export default function ChatPage() {
         action={
           <button
             aria-label="Customize chat"
-            className="relative h-12 w-12 overflow-hidden rounded-[18px] border border-white/70 bg-[var(--color-secondary)] shadow-card"
+            className="avatar-action secondary-action relative h-12 w-12 overflow-hidden border border-white/70 bg-[var(--color-secondary)] shadow-card"
             onClick={() => setIsSettingsOpen(true)}
             type="button"
           >
@@ -151,14 +158,14 @@ export default function ChatPage() {
         }
       />
 
-      <GlassCard className="relative flex h-[calc(100vh-13.5rem)] min-h-[520px] overflow-hidden rounded-[34px] p-0">
+      <GlassCard className="chat-panel relative flex h-[calc(100vh-13.5rem)] min-h-[520px] overflow-hidden p-0">
         {customization.background ? (
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${customization.background})` }}
           />
         ) : null}
-        <div className="absolute inset-0 bg-white/55 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-white/55" />
         <div className="relative z-10 flex min-h-0 flex-1 flex-col p-3">
         <div className="flex-1 space-y-3 overflow-y-auto px-1 py-2">
           {messages.map((message, messageIndex) => {
@@ -182,10 +189,8 @@ export default function ChatPage() {
                 >
                   <div
                     className={[
-                      "max-w-[82%] rounded-[28px] px-4 py-3 text-[15px] leading-relaxed shadow-card",
-                      fromUser
-                        ? "bg-[var(--color-primary)] text-white"
-                        : "border border-[var(--color-border)] bg-white/86 text-[var(--color-text)]"
+                      "chat-bubble max-w-[82%] px-4 py-3 text-[15px] leading-relaxed shadow-card",
+                      fromUser ? "chat-bubble-user" : "chat-bubble-ai"
                     ].join(" ")}
                   >
                     <p>{message.content}</p>
@@ -197,7 +202,7 @@ export default function ChatPage() {
 
           {isTyping ? (
             <div className="flex justify-start">
-              <div className="rounded-[28px] border border-[var(--color-border)] bg-white/86 px-4 py-3 text-[15px] text-[var(--color-muted)] shadow-card">
+              <div className="chat-bubble chat-bubble-ai px-4 py-3 text-[15px] text-[var(--color-muted)] shadow-card">
                 <span className="inline-flex items-center gap-[1px]">
                   {"对方正在输入".split("").map((character, index) => (
                     <motion.span
@@ -229,7 +234,7 @@ export default function ChatPage() {
           <div ref={bottomRef} />
         </div>
 
-        <form className="mt-3 flex items-end gap-2 rounded-[28px] border border-[var(--color-border)] bg-white/86 p-2" onSubmit={handleSubmit}>
+        <form className="chat-composer mt-3 flex items-end gap-2 border border-[var(--color-border)] bg-white/86 p-2" onSubmit={handleSubmit}>
           <textarea
             aria-label="Message"
             className="max-h-32 min-h-11 flex-1 resize-none bg-transparent px-3 py-2 text-[16px] leading-relaxed outline-none placeholder:text-[var(--color-muted)]"
@@ -246,7 +251,7 @@ export default function ChatPage() {
           />
           <button
             aria-label="Send"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-card disabled:opacity-50"
+            className="primary-action flex h-11 w-11 shrink-0 items-center justify-center bg-[var(--color-primary)] text-white shadow-card disabled:opacity-50"
             disabled={!input.trim() || isTyping}
             type="submit"
           >
@@ -257,10 +262,10 @@ export default function ChatPage() {
       </GlassCard>
 
       {isSettingsOpen ? (
-        <div className="fixed inset-0 z-[70] flex items-end bg-black/20 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] backdrop-blur-sm">
+        <div className="fixed inset-0 z-[70] flex items-end bg-black/20 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
           <motion.div
             animate={{ opacity: 1, y: 0 }}
-            className="mx-auto w-full max-w-[430px] rounded-[34px] border border-white/70 bg-white/86 p-5 shadow-soft backdrop-blur-3xl"
+            className="settings-sheet mx-auto w-full max-w-[430px] border border-white/70 bg-white/86 p-5 shadow-soft"
             initial={{ opacity: 0, y: 24 }}
           >
             <div className="mb-5 flex items-center justify-between">
@@ -270,7 +275,7 @@ export default function ChatPage() {
               </div>
               <button
                 aria-label="Close"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-secondary)] text-[var(--color-muted)]"
+                className="secondary-action flex h-10 w-10 items-center justify-center bg-[var(--color-secondary)] text-[var(--color-muted)]"
                 onClick={() => setIsSettingsOpen(false)}
                 type="button"
               >
@@ -282,7 +287,7 @@ export default function ChatPage() {
               <label className="block">
                 <span className="text-sm font-medium text-[var(--color-muted)]">备注</span>
                 <input
-                  className="mt-2 h-12 w-full rounded-2xl border border-[var(--color-border)] bg-white/78 px-4 text-[16px] outline-none"
+                  className="paper-input mt-2 h-12 w-full border border-[var(--color-border)] bg-white/78 px-4 text-[16px] outline-none"
                   onChange={(event) => setCustomization((current) => ({ ...current, remark: event.target.value }))}
                   placeholder="给 AI Companion 起一个备注"
                   value={customization.remark}
@@ -290,8 +295,8 @@ export default function ChatPage() {
               </label>
 
               <div className="grid grid-cols-2 gap-3">
-                <label className="flex cursor-pointer flex-col gap-3 rounded-[24px] border border-[var(--color-border)] bg-white/68 p-4">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-secondary)] text-[var(--color-primary)]">
+                <label className="option-tile flex cursor-pointer flex-col gap-3 border border-[var(--color-border)] bg-white/68 p-4">
+                  <span className="small-mark flex h-11 w-11 items-center justify-center bg-[var(--color-secondary)] text-[var(--color-primary)]">
                     <Camera size={19} />
                   </span>
                   <span className="text-sm font-semibold">修改头像</span>
@@ -303,8 +308,8 @@ export default function ChatPage() {
                   />
                 </label>
 
-                <label className="flex cursor-pointer flex-col gap-3 rounded-[24px] border border-[var(--color-border)] bg-white/68 p-4">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-secondary)] text-[var(--color-primary)]">
+                <label className="option-tile flex cursor-pointer flex-col gap-3 border border-[var(--color-border)] bg-white/68 p-4">
+                  <span className="small-mark flex h-11 w-11 items-center justify-center bg-[var(--color-secondary)] text-[var(--color-primary)]">
                     <ImageIcon size={19} />
                   </span>
                   <span className="text-sm font-semibold">聊天背景</span>
@@ -317,8 +322,8 @@ export default function ChatPage() {
                 </label>
               </div>
 
-              <div className="flex items-center gap-3 rounded-[24px] bg-[var(--color-secondary)] p-3">
-                <div className="h-14 w-14 overflow-hidden rounded-2xl bg-white/70">
+              <div className="secondary-action flex items-center gap-3 bg-[var(--color-secondary)] p-3">
+                <div className="h-14 w-14 overflow-hidden rounded-[6px] bg-white/70">
                   <img
                     alt={customization.remark || siteConfig.name}
                     className="h-full w-full object-cover"
@@ -334,7 +339,7 @@ export default function ChatPage() {
               </div>
 
               <button
-                className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white/78 text-sm font-semibold text-[var(--color-muted)]"
+                className="secondary-action flex h-12 w-full items-center justify-center gap-2 bg-white/78 text-sm font-semibold text-[var(--color-muted)]"
                 onClick={resetCustomization}
                 type="button"
               >

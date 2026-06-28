@@ -1,7 +1,7 @@
 {
   "name": "AI Companion",
-  "avatar": "/avatar.svg",
-  "theme": "blue",
+  "avatar": "/theme-assets/jiangyan-martial-avatar.png",
+  "theme": "yanyunNight",
   "anniversary": "2026-01-01",
   "welcome": "欢迎回来",
   "bio": "一个可配置、可记忆、可长期陪伴用户的 AI 伴侣。",

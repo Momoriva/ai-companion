@@ -13,5 +13,7 @@ export const pinkTheme: ThemeTokens = {
     border: "rgba(154,190,255,0.28)"
   },
   gradient: "linear-gradient(180deg, #FBFDFF 0%, #EEF5FF 58%, #FFFFFF 100%)",
-  shadow: "0 22px 68px rgba(90, 130, 205, 0.12)"
+  shadow: "0 22px 68px rgba(90, 130, 205, 0.12)",
+  shadowCard: "0 14px 36px rgba(44, 75, 128, 0.08)",
+  shadowSoft: "0 20px 60px rgba(44, 75, 128, 0.12)"
 };

@@ -1,4 +1,4 @@
-export type ThemeName = "blue" | "pink" | "minimal";
+export type ThemeName = "blue" | "bubblegum" | "pink" | "minimal" | "yanyunNight";
 
 export type SiteConfig = {
   name: string;

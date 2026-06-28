@@ -37,7 +37,7 @@ export default function ProfilePage() {
         <GlassCard>
           <h2 className="text-lg font-semibold">Persona</h2>
           <textarea
-            className="mt-4 min-h-44 w-full resize-none rounded-[24px] border border-[var(--color-border)] bg-white/80 px-4 py-3 text-[16px] leading-relaxed outline-none placeholder:text-[var(--color-muted)]"
+            className="paper-input mt-4 min-h-44 w-full resize-none border border-[var(--color-border)] bg-white/80 px-4 py-3 text-[16px] leading-relaxed outline-none placeholder:text-[var(--color-muted)]"
             onChange={(event) => setPersona(event.target.value)}
             placeholder="写下 AI Companion 的 persona..."
             value={persona}
