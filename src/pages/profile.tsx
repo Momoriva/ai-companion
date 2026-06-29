@@ -24,7 +24,7 @@ export default function ProfilePage() {
     <AppLayout title="Profile">
       <PageHeader eyebrow="Profile" title={siteConfig.name} />
       <div className="space-y-4">
-        <GlassCard>
+        <GlassCard className="ink-card--profile">
           <div className="flex items-center gap-4">
             <CompanionAvatar size={104} />
             <div className="min-w-0">
@@ -34,7 +34,7 @@ export default function ProfilePage() {
           </div>
         </GlassCard>
 
-        <GlassCard>
+        <GlassCard className="ink-card--form">
           <h2 className="text-lg font-semibold">Persona</h2>
           <textarea
             className="paper-input mt-4 min-h-44 w-full resize-none border border-[var(--color-border)] bg-white/80 px-4 py-3 text-[16px] leading-relaxed outline-none placeholder:text-[var(--color-muted)]"
@@ -44,7 +44,7 @@ export default function ProfilePage() {
           />
         </GlassCard>
 
-        <GlassCard>
+        <GlassCard className="ink-card--profile-note">
           <h2 className="text-lg font-semibold">世界观设定</h2>
           <p className="mt-3 leading-relaxed text-[var(--color-muted)]">{siteConfig.worldview}</p>
         </GlassCard>

@@ -28,7 +28,7 @@ export default function HomePage({ moments }: HomePageProps) {
       <PageHeader eyebrow={siteConfig.welcome} title={siteConfig.name} />
 
       <div className="space-y-4">
-        <GlassCard>
+        <GlassCard className="home-hero-card ink-card--home-hero">
           <div className="flex items-center gap-4">
             <CompanionAvatar />
             <div className="min-w-0 flex-1">
@@ -41,13 +41,13 @@ export default function HomePage({ moments }: HomePageProps) {
           </div>
         </GlassCard>
 
-        <GlassCard className="bg-[var(--color-surface-strong)]">
+        <GlassCard className="home-quote-card ink-card--home-quote bg-[var(--color-surface-strong)]">
           <p className="text-sm font-medium text-[var(--color-muted)]">今日寄语</p>
           <p className="mt-3 text-xl font-semibold leading-relaxed">{dailyMessage}</p>
         </GlassCard>
 
         <div className="grid grid-cols-2 gap-3">
-          <GlassCard className="p-4">
+          <GlassCard className="home-date-card ink-card--home-date p-4">
             <span className="small-mark flex h-10 w-10 items-center justify-center">
               <CalendarDays size={19} />
             </span>
@@ -55,7 +55,7 @@ export default function HomePage({ moments }: HomePageProps) {
             <p className="mt-1 text-lg font-semibold">{formatDate(siteConfig.anniversary)}</p>
           </GlassCard>
 
-          <Link href="/chat" className="home-chat-card glass flex p-4">
+          <Link href="/chat" className="home-chat-card glass ink-card ink-card--home-chat flex p-4">
             <div className="flex w-full flex-col justify-between">
               <span className="primary-mark flex h-10 w-10 items-center justify-center">
                 <MessageCircle size={19} />
@@ -77,7 +77,7 @@ export default function HomePage({ moments }: HomePageProps) {
           </div>
           <div className="space-y-3">
             {moments.map((moment) => (
-              <GlassCard className="p-4" key={moment.id}>
+              <GlassCard className="ink-card--recent p-4" key={moment.id}>
                 <p className="leading-relaxed">{moment.content}</p>
                 <p className="mt-3 text-sm text-[var(--color-muted)]">{formatDate(moment.created_at)}</p>
               </GlassCard>

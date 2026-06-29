@@ -151,7 +151,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
       <PageHeader eyebrow="Memory System" title="记忆管理" />
 
       <div className="space-y-4">
-        <GlassCard className="p-3">
+        <GlassCard className="ink-card--utility p-3">
           <div className="grid grid-cols-2 gap-2">
             <button
               className={tabClass(status === "active")}
@@ -177,7 +177,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
           </div>
         </GlassCard>
 
-        <div className="search-field glass flex items-center gap-2 px-4 py-3">
+        <div className="search-field glass ink-card ink-card--utility flex items-center gap-2 px-4 py-3">
           <Search size={18} className="text-[var(--color-muted)]" />
           <input
             className="min-w-0 flex-1 bg-transparent text-[16px] outline-none placeholder:text-[var(--color-muted)]"
@@ -187,7 +187,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
           />
         </div>
 
-        <GlassCard>
+        <GlassCard className="ink-card--form">
           <form className="space-y-4" onSubmit={handleAddMemory}>
             <textarea
               className="paper-input min-h-28 w-full resize-none border border-[var(--color-border)] bg-white/80 px-4 py-3 text-[16px] outline-none placeholder:text-[var(--color-muted)]"
@@ -222,7 +222,7 @@ export default function MemoryPage({ initialMemories }: MemoryPageProps) {
 
         <div className="space-y-3">
           {filteredMemories.map((memory) => (
-            <GlassCard className="p-4" key={memory.id}>
+            <GlassCard className="ink-card--memory p-4" key={memory.id}>
               <div className="flex gap-4">
                 <span className="small-mark flex h-12 w-12 shrink-0 items-center justify-center bg-[var(--color-secondary)] text-[var(--color-text)]">
                   <CalendarDays size={21} />

@@ -14,7 +14,7 @@ export function BottomNav() {
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-[430px] px-4 pb-[calc(0.85rem+env(safe-area-inset-bottom))] sm:max-w-2xl">
-      <div className="bottom-nav-surface glass grid h-16 grid-cols-5 px-2">
+      <div className="bottom-nav-surface glass ink-card ink-card--nav grid h-16 grid-cols-5 px-2">
         {tabs.map((tab) => {
           const active = router.pathname === tab.href;
 

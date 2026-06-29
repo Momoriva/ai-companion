@@ -50,7 +50,7 @@ export default function MomentsPage({ moments }: MomentsPageProps) {
     <AppLayout title="Moments">
       <PageHeader eyebrow="Moments" title="朋友圈" />
 
-      <div className="moments-panel overflow-hidden border border-[var(--color-border)] bg-white/82 shadow-card">
+      <div className="moments-panel ink-card ink-card--moments-panel overflow-hidden border border-[var(--color-border)] bg-white/82 shadow-card">
         <div className="moments-cover relative h-40 bg-[var(--color-secondary)]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.85),transparent_34%),linear-gradient(135deg,var(--color-secondary),var(--color-background))]" />
           <div className="absolute bottom-[-28px] right-5 flex items-end gap-3">
@@ -67,7 +67,7 @@ export default function MomentsPage({ moments }: MomentsPageProps) {
             return (
               <article className="border-b border-[var(--color-border)] py-5 last:border-b-0" key={moment.id}>
                 <div className="flex gap-3">
-                  <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl bg-[var(--color-secondary)]">
+                  <div className="relative h-11 w-11 shrink-0 overflow-hidden bg-[var(--color-secondary)]">
                     <img alt={siteConfig.name} className="h-full w-full object-cover" src={siteConfig.avatar} />
                   </div>
 
@@ -100,7 +100,7 @@ export default function MomentsPage({ moments }: MomentsPageProps) {
                     </div>
 
                     {(isLiked || momentComments.length > 0) ? (
-                      <div className="mt-3 rounded-xl bg-[var(--color-secondary)] px-3 py-2 text-sm">
+                      <div className="comment-area mt-3 bg-[var(--color-secondary)] px-3 py-2 text-sm">
                         {isLiked ? (
                           <p className="font-medium text-[#576B95]">
                             你

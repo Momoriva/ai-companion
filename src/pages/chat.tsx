@@ -158,7 +158,7 @@ export default function ChatPage() {
         }
       />
 
-      <GlassCard className="chat-panel relative flex h-[calc(100vh-13.5rem)] min-h-[520px] overflow-hidden p-0">
+      <GlassCard className="chat-panel ink-card--chat-panel relative flex h-[calc(100vh-13.5rem)] min-h-[520px] overflow-hidden p-0">
         {customization.background ? (
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -177,7 +177,7 @@ export default function ChatPage() {
               <Fragment key={message.id}>
                 {showTime ? (
                   <div className="flex justify-center py-1">
-                    <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-[var(--color-muted)]">
+                    <span className="time-chip bg-white/70 px-3 py-1 text-xs font-medium text-[var(--color-muted)]">
                       {formatTime(message.created_at)}
                     </span>
                   </div>
@@ -323,7 +323,7 @@ export default function ChatPage() {
               </div>
 
               <div className="secondary-action flex items-center gap-3 bg-[var(--color-secondary)] p-3">
-                <div className="h-14 w-14 overflow-hidden rounded-[6px] bg-white/70">
+                <div className="h-14 w-14 overflow-hidden bg-white/70">
                   <img
                     alt={customization.remark || siteConfig.name}
                     className="h-full w-full object-cover"
