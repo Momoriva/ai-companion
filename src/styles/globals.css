@@ -492,11 +492,13 @@ textarea {
 }
 
 [data-theme="yanyunNight"] .moments-cover {
-  background: linear-gradient(135deg, rgba(41, 78, 113, 0.88), rgba(83, 115, 149, 0.7));
+  background: #1f2630;
 }
 
-[data-theme="yanyunNight"] .moments-cover > .absolute {
-  background: radial-gradient(circle at 24% 18%, rgba(245, 241, 232, 0.78), transparent 30%), linear-gradient(135deg, rgba(45, 97, 145, 0.74), rgba(31, 38, 48, 0.72));
+[data-theme="yanyunNight"] .moments-topic-image {
+  display: block;
+  object-fit: cover;
+  object-position: center center;
 }
 
 @media (max-width: 640px) {

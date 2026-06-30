@@ -52,7 +52,12 @@ export default function MomentsPage({ moments }: MomentsPageProps) {
 
       <div className="moments-panel ink-card ink-card--moments-panel overflow-hidden border border-[var(--color-border)] bg-white/82 shadow-card">
         <div className="moments-cover relative h-40 bg-[var(--color-secondary)]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.85),transparent_34%),linear-gradient(135deg,var(--color-secondary),var(--color-background))]" />
+          <img
+            alt=""
+            aria-hidden="true"
+            className="moments-topic-image absolute inset-0 h-full w-full object-cover"
+            src="/assets/moments/moments-topic.png"
+          />
           <div className="absolute bottom-[-28px] right-5 flex items-end gap-3">
             <span className="pb-2 text-xl font-semibold text-[var(--color-text)]">{siteConfig.name}</span>
             <CompanionAvatar size={72} />
